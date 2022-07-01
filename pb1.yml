@@ -1,0 +1,14 @@
+---
+- name: Docker Container
+  hosts: test
+  tasks: 
+     
+    - name: stopping container
+      shell: docker stop cont1
+    - name: removing container
+      shell: docker rm cont1
+    - name: removing docker image
+      shell: docker rmi docker0250/img001:latest
+    - name: starting container
+      shell: docker run -itd --name cont1 -p 8099:8080 docker0250/img001:latest
+
